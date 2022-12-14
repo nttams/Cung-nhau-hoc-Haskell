@@ -1,3 +1,2 @@
-main = do
-  putStrLn "Hello"
-  putStrLn "World"
+nhan :: Int -> Float -> Float
+nhan x y = 2.2
