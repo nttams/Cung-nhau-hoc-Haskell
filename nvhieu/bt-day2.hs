@@ -3,7 +3,7 @@
 -- (Use the types presented in the lecture.)
 
 f1::Float->Float->Float->Float
-f1 x y z = x** (y/z)
+f1 x y z = x**(y/z)
 
 f2::Float->Float->Float->Float
 f2 x y z = sqrt (x/y - z)
