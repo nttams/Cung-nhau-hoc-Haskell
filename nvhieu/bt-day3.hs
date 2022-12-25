@@ -74,10 +74,10 @@ f4' a b
 -- let expression inside a where block.
 f5 :: Float->Float-> String
 f5 x y =
-    let sqrtProd = show (sqrt xyProd) where xyProd = x * y
-    in   ( sqrtProd) ++" va "++ ( sqrtQuot)
+    let sqrProd =  xyProd^2 where xyProd = x * y
+    in  if y /= 0 then show ( sqrProd +  sqrQuot)
+        else "The division is not possible"
     where
-        sqrtQuot
-          | y /= 0 = let xyQuot = (/) x y
-                        in show (sqrt xyQuot)
-          |otherwise  = "The division is not possible"
+        sqrQuot = let xyQuot = (/) x y
+                        in   xyQuot^2
+
