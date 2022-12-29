@@ -54,7 +54,7 @@ f3 a b=
 -- possible. To implement this function using both guards and if-then-else statements.  
 f4::Float->Float->String
 f4 a b=
-    if b==0 then "so chia =0"
+    if b==0  then "so chia =0"
       else 
         if a<b then "Thuong = " ++ show  (a/b) 
           else  "Thuong >1 " 
