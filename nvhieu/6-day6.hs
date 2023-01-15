@@ -66,7 +66,9 @@ zip' (x:xs) (y:ys) = [(x,y)] ++ zip' xs ys
 --
 -- >>> zipWith (+) [1, 2, 3] [4, 5, 6]
 -- [5,7,9]
-
+zipWith' :: (a -> a -> a) -> [a] -> [a]-> [a]
+zipWith' f (x:xs) (y:ys) = f x y : zipWith' f xs ys
+zipWith' f _ _ = []
 
 -- Câu 6
 -- Viết một hàm gọi là `takeWhile'` nhận vào một tiền tố và một danh sách rồi trả về danh sách cho đến khi một phần tử không thỏa mãn vị từ.
@@ -78,52 +80,13 @@ zip' (x:xs) (y:ys) = [(x,y)] ++ zip' xs ys
 -- takeWhile (< 0) [1,2,3]
 -- []
 
-
--- Câu 7 (Khó hơn)
--- Viết hàm nhận vào số nguyên n, tính giai thừa n! và trả về một chuỗi ở dạng 1*2* ... *n = n! ở đâu! là kết quả thực tế.
-{-
-zip' :: [a] -> [b] -> [(a,b)]
-zip' [] _ = []
-zip' _ [] = []
-zip' (x:xs) (y:ys) = [(x, y)] ++ zip' xs ys
--}
--- Question 5
--- Create a function called `zipWith'` that generalises `zip'` by zipping with a
--- function given as the first argument, instead of a tupling function.
---
--- > zipWith' (,) xs ys == zip' xs ys
--- > zipWith' f [x1,x2,x3..] [y1,y2,y3..] == [f x1 y1, f x2 y2, f x3 y3..]
---
--- For example, `zipWith' (+)` is applied to two lists to produce the list of
--- corresponding sums:
---
--- >>> zipWith (+) [1, 2, 3] [4, 5, 6]
--- [5,7,9]
-
-zipWith' :: (a -> a -> a) -> [a] -> [a]-> [a]
-zipWith' f (x:xs) (y:ys) = f x y : zipWith' f xs ys
-zipWith' f _ _ = []
-
--- Question 6
--- Write a function called `takeWhile'` that takes a precate and a list and
--- returns the list up until an element that doesn't satisfy the predicate.
---
--- >>> takeWhile (< 3) [1,2,3,4,1,2,3,4]
--- [1,2]
--- >>> takeWhile (< 9) [1,2,3]
--- [1,2,3]
--- >>> takeWhile (< 0) [1,2,3]
--- []
-
 takeWhile':: (a -> Bool) -> [a] -> [a]
 takeWhile' p xs = case (p $ head xs) of
   True -> head xs : (takeWhile' p $ tail xs)
   False -> []
-
--- Question 7 (More difficult)
--- Write a function that takes in an integer n, calculates the factorial n! and
--- returns a string in the form of 1*2* ... *n = n! where n! is the actual result.
-
+  
+-- Câu 7 (Khó hơn)
+-- Viết hàm nhận vào số nguyên n, tính giai thừa n! và trả về một chuỗi ở dạng 1*2* ... *n = n! ở đâu! là kết quả thực tế.
 factorial :: Int -> String
 factorial n
   | n < 0 = "Can't be a negative integer!"
@@ -132,6 +95,7 @@ factorial n
       where calcFact 0 = 1
             calcFact n = n * calcFact (n-1)
             printFact n = concat (intersperse "*" (map show [1..n]))
+
 
 -- Question 8
 -- Below you have defined some beer prices in bevogBeerPrices and your order list in
