@@ -53,7 +53,22 @@ instance Enum Double -- Defined in ‘GHC.Float’
 
 -- Câu 4
 -- Thêm chữ ký kiểu vào các hàm bên dưới và sử dụng các biến kiểu và lớp kiểu. Sau đó bỏ ghi chú các chức năng và cố gắng biên dịch.
+f1 :: (Fractional a, Show a)  => a -> a -> String -> String
+f1 x y z = show (x / y) ++ z
 
+
+f2 :: (Bounded b, Enum b, Eq b)=> b -> b
+f2 x = if x == maxBound then minBound else succ x
 
 -- Câu 5
+
 -- Tìm hiểu các lớp kiểu số để tìm ra những hành vi mà chúng cung cấp để thay đổi giữa các kiểu số.
+
+--Fractional 
+    fromRational :: Rational -> a
+--Real 
+    toRational :: a -> Rational
+--Integer
+    fromInteger :: Integer -> a
+--Integral
+    toInteger :: a -> Integer
