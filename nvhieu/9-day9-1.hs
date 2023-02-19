@@ -56,27 +56,22 @@ vẫn cần phải thực hiện một sự lựa chọn khác.
 -}
 
 -- 1. Viết hai kiểu dữ liệu. Một cho các nước đi (Move) mà bạn có thể thực hiện, và một cho mê cung (Maze).
-data Move = GoLeft | GoRight | GoForward  deriving (Show,Eq)
+data Move = L | R | F  deriving (Show)
   
-data Maze = Maze {path ::   [Move],
-                    wall ::   String,
-                    inside :: String,
-                    exit ::   String} deriving (Show,Eq)
-
+data Maze =  Exit | Wall |Inside Maze Maze Maze   deriving (Show)
 
 -- 2. Viết một hàm gọi là "move" nhận vào một Maze và một Move và trả về Maze sau khi di chuyển.
 move:: Maze -> Move -> Maze
-move   maze step  
-               | mazeStep == step = remainingPath  -- nếu hướng đi của banij cùng với hướng của ma trận thì gọi node mới (Maze) 
-               | otherwise        = maze -- nêu không thì đứng tại chỗ.
-      where mazeStep = path maze !! 0
-            remainingPath = Maze (tail (path maze)) (wall maze) (inside maze) (exit maze)
+move Wall _  = Wall
+move Exit _  = Exit
+move (Inside x _ _) L  = x
+move (Inside _ x _) F = x
+move (Inside _ _ x) R  = x
+
 
 -- 3. Viết giá trị "testMaze" kiểu "Maze" và kiểm tra chức năng "move" trong GHCi.            
-testMaze = Maze {path   = [GoForward, GoLeft, GoRight]
-                ,wall   = "You've hit a wall!"
-                ,exit   = "YOU'VE FOUND THE EXIT!!" 
-                ,inside = "You're still inside the maze. Choose a path, brave adventurer: GoLeft, GoRight, or GoForward." }
+testMaze :: Maze
+testMaze = Inside Wall (Inside Exit Wall Wall) (Inside Wall (Inside Wall Wall Wall) Exit)
 
 -- 4. Viết hàm "solveMaze" sẽ lấy một mê cung và danh sách các bước di chuyển rồi trả về mê cung sau khi thực hiện những động thái đó.
 {-4. Write the "solveMaze" function that will take a maze and a list of moves and returns the maze
@@ -85,39 +80,14 @@ after making those moves.
 it'll print the whole maze for the player to see. To avoid that, write a "showCurrentChoice" function
 that takes a maze and returns a different string depending on if you hit a wall, found the exit, or
 still need to make another choice.
-6. Adapt adapt "solveMaze" function to use "showCurrentChoice" and play with your new game using GHCi! :D-}
-
-solveMaze :: Maze -> [Move] -> Maze
-solveMaze    maze step
-                     |
-                     | otherwise        = maze -- nêu không thì đứng tại chỗ.
-
-
-showCurrentChoice :: Maze -> Move -> String
+-}
+-- showCurrentChoice :: Maze -> Move -> String
 showCurrentChoice :: Maze -> String
-showCurrentChoice wall = "You've hit a wall!"
-showCurrentChoice exit = "YOU'VE FOUND THE EXIT!!"
-showCurrentChoice inside ="You're still inside the maze. Choose a path, brave adventurer: GoLeft, GoRight, or GoForward."
+showCurrentChoice Wall = "You've hit a wall!"
+showCurrentChoice Exit = "YOU'VE FOUND THE EXIT!!"
+showCurrentChoice _ ="You're still inside the maze. Choose a path, brave adventurer: GoLeft, GoRight, or GoForward."
 
+-- 6. Adapt adapt "solveMaze" function to use "showCurrentChoice" and play with your new game using GHCi! :D
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                   
+solveMaze :: Maze -> [Move]  -> String
+solveMaze maze moveList = showCurrentChoice $ foldl move maze moveList
