@@ -39,19 +39,19 @@ move (y,Inside a _ _ x) R  = (y-a,x)
 testMaze :: Maze Int
 testMaze = Inside 2
     (Inside 4
-    (Inside 1 Exit Exit Exit)
-    (Inside 3 Exit Exit Exit)
+    (Inside 1 (Inside 2 Exit (Inside 6 Exit Exit Exit) Exit) Exit Exit)
+    (Inside 3 Exit (Inside 5 Exit Exit (Inside 7 Exit Exit Exit)) Exit)
     (Inside 8 Exit Exit Exit)    
     )
     (Inside 5
-    (Inside 3 Exit Exit Exit)
+    (Inside 3 Exit (Inside 5 (Inside 7 Exit Exit Exit) Exit Exit) Exit)
     (Inside 4 Exit Exit Exit)
-    (Inside 2 Exit Exit Exit)    
+    (Inside 2 Exit (Inside 6 Exit (Inside 4 Exit Exit Exit) Exit) Exit)    
     )
     (Inside 6
-    (Inside 3 Exit Exit Exit)
-    (Inside 4 Exit Exit Exit)
-    (Inside 2 Exit Exit Exit)    
+    (Inside 3 Exit (Inside 2 Exit (Inside 1 Exit Exit Exit) Exit) Exit)
+    (Inside 4 Exit (Inside 1 Exit Exit (Inside 1 Exit (Inside 1 Exit Exit Exit) Exit)) Exit)
+    (Inside 2 Exit (Inside 1 Exit (Inside 1 (Inside 1 Exit Exit Exit) Exit Exit) Exit) Exit)    
     )
 
 
@@ -66,11 +66,9 @@ still need to make another choice.
 -- showCurrentChoice :: Maze -> Move -> String
 showCurrentChoice :: (Show a, Ord a, Num a) => (a,Maze a)-> String
 showCurrentChoice (_, Exit) = "YOU'VE FOUND THE EXIT!!"
-showCurrentChoice (st, _)
-            | st > 0    = "You have " ++ (show st) ++ " stamina, and you're still inside the Forest. Choose a path, brave adventurer: GoLeft, GoRight, or GoForward."
+showCurrentChoice (st, x)
+            | st > 0    = "Node "++ (show x) ++" => You have " ++ (show st) ++ " stamina, and you're still inside the Forest. Choose a path, brave adventurer: GoLeft, GoRight, or GoForward."
             | otherwise = "You ran out of stamina and died -.-!"
-            
-
 
 -- 6. Adapt adapt "solveMaze" function to use "showCurrentChoice" and play with your new game using GHCi! :D
 
