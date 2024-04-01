@@ -1,0 +1,3 @@
+fType :: float -> float 
+fType r pi = r*r + pi
+s = r * pi
