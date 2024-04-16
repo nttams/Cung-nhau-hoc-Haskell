@@ -8,13 +8,14 @@
    Hàm phải nhận vào lượng tiêu thụ hàng giờ của một thiết bị điện, số giờ sử dụng hàng ngày và lượng tiêu thụ hàng tháng tối đa cho phép.
    (Lượng tiêu thụ hàng tháng = tiêu thụ (kW) * số giờ sử dụng hàng ngày (h) * 30 ngày). -}
 
-   checkConsumption :: Double -> Double -> Double -> String
-   checkConsumption p h maxAllowed
-         |usageinmonth == maxAllowed = "Monthly Consumption is equal than the maximum allowed"
-         |usageinmonth > maxAllowed = "Monthly consumption is bigger than the maximum allowed"
-         |otherwise = "Monthly consumption is smaller than the maximum allowed"
-          where
-           usageinmonth = p * h * 30
+-- GROUP3 checked, OK
+checkConsumption :: Double -> Double -> Double -> String
+checkConsumption p h maxAllowed
+      |usageinmonth == maxAllowed = "Monthly Consumption is equal than the maximum allowed"
+      |usageinmonth > maxAllowed = "Monthly consumption is bigger than the maximum allowed"
+      |otherwise = "Monthly consumption is smaller than the maximum allowed"
+         where
+         usageinmonth = p * h * 30
             
 -- Question 2
 -- Prelude:
@@ -26,6 +27,7 @@
    Hãy dùng nó để cập nhật hàm trong bài 1, trả về số điện năng tiêu thụ vượt quá giới hạn hoặc tiết kiệm được trong thông báo.
 -}
 
+-- GROUP3 checked, OK
 checkConsumption' :: Double -> Double -> Double -> String
 checkConsumption' p h maxAllowed
          |usageinmonth == maxAllowed = "Monthly Consumption is equal than the maximum allowed"
@@ -38,11 +40,13 @@ checkConsumption' p h maxAllowed
 -- Write a function that showcases the advantages of using let expressions to split a big expression into smaller ones.
 -- Then, share it with other students in Canvas.
 -- Viết một hàm cho thấy ích lợi của việc sử dụng biểu thức let để chia một biểu thức lớn thành các biểu thức nhỏ hơn.
-exchange :: Double -> Double -> Double
-exchange a b =
-  let atob t = t * 25037
-      btoa t = t / 25037
-   in if a > b then atob else btoa
+-- GROUP3 checked, NOT OK, it does not compile.
+-- atob and btoa are declared to take 1 argument, but they are provided none
+-- exchange :: Double -> Double -> Double
+-- exchange a b =
+--   let atob t = t * 25037
+--       btoa t = t / 25037
+--    in if a > b then atob else btoa
 
 -- Question 4
 -- Write a function that takes in two numbers and returns their quotient such that it is not greater than 1.
@@ -53,14 +57,15 @@ exchange a b =
 -- thì ta có 2 giá trị thương là a/b hoặc b/a, hãy chọn giá trị không > 1 làm kết quả trả về, tất nhiên cần xem xét các trường hợp đặc biệt nữa)
 -- Trả về kết quả dưới dạng một chuỗi, và trong trường hợp mẫu số là 0, trả về một thông báo giải thích tại sao phép chia không
 -- thể thực hiện được. Hãy thực hiện bài này sử dụng cả guard và if-then-else trong cùng một hàm.
+-- GROUP3 checked, OK, but syntax is incorrect
 g :: Double -> Double -> String
-g x y =
+g x y
    |x == 0 && y == 0 = "Undefined"
    |x == 0 || y == 0 = "=0"
-   |otherwise
-   if x / y <= 1
-      then "x/y = " ++ show (x / y)
-      else "y/x = " ++ show (y / x)
+   |otherwise =
+      if x / y <= 1
+         then "x/y = " ++ show (x / y)
+         else "y/x = " ++ show (y / x)
 
 
 -- Question 5
@@ -73,14 +78,15 @@ Viết hàm sao cho trong hàm có cả 2 thứ sau:
    - một khối where bên trong một biểu thức let
    - một biểu thức let bên trong một khối where. 
 -}
+-- GROUP3 checked, NOT OK
 g' :: Double -> Double -> String
 g' a b
   |b == 0 = "Undefined"
   |otherwise =
-   let SqA = square a
+   let sqA = square a
           where square a = a * a
-    in show (SqA * SqB + SqA / SqB)
+    in show (sqA * sqB + sqA / sqB)
           where
-       SqB = 
+       sqB = 
          let square b = b * b
           in square b
