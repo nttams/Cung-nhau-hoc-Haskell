@@ -4,6 +4,8 @@
 -- The function has to take the hourly consumption of an electrical device, the hours of daily use, and the maximum monthly consumption allowed.
 -- (Monthly usage = consumption (kW) * hours of daily use (h) * 30 days).
 checkMonthlyComsumption :: Int -> Int -> Int -> String
+
+-- GROUP3 checked, OK, but should use clearer names. "hc", "hu" are very hard to guess what they represent
 -- Use let
 checkMonthlyComsumption hc hu maxMC =
     let mUsage c h = c * h * 30
@@ -28,6 +30,7 @@ checkMonthlyComsumption' hc hu maxMC
 -- We use the function `show :: a -> String` to transform any type into a String.
 -- So `show 3` will produce `"3"` and `show (3 > 2)` will produce `"True"`.
 
+-- GROUP3 checked, OK
 -- In the previous function, return the excess/savings of consumption as part of the message.
 checkMonthlyComsumptionQ2 hc hu maxMC
         | mUsage > maxMC = "the monthly consumption of an electrical device is bigger than the maximum allowed" 
@@ -42,6 +45,7 @@ checkMonthlyComsumptionQ2 hc hu maxMC
 -- Question 3
 -- Write a function that showcases the advantages of using let expressions to split a big expression into smaller ones.
 -- Then, share it with other students in Canvas.
+-- GROUP3 checked, OK
 hotterInKelvin :: Double -> Double -> Double
 hotterInKelvin c f = if c > (f - 32) * 5 / 9 then c + 273.16 else ((f - 32) * 5 / 9) + 273.16
 
@@ -58,6 +62,7 @@ hotterInKelvin' c f =
 -- Return the number as a string, and in case the divisor is 0, return a message why the division is not
 -- possible. To implement this function using both guards and if-then-else statements.  
 checkQotient :: Double -> Double -> String
+-- GROUP3 checked, NOT OK, you misunderstood the requirement
 -- Use guards
 checkQotient a b 
     | a / b < 1 = "The quotient of " ++ show(a) ++ " and " ++ show(b) ++ " is " ++ show(a/b)
@@ -79,6 +84,7 @@ checkQotient' a b =
 -- of those numbers. Write the function such that you use a where block inside a let expression and a
 -- let expression inside a where block. 
 
+-- GROUP3 checked, NOT OK, the requirement is to write ONE function, not 2 separated functions
 -- Use let
 sumOfProductAndQuotient :: Double -> Double -> Double
 sumOfProductAndQuotient a b = 

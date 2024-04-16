@@ -4,7 +4,7 @@
 -- The function has to take the hourly consumption of an electrical device, the hours of daily use, and the maximum monthly consumption allowed.
 -- (Monthly usage = consumption (kW) * hours of daily use (h) * 30 days).
 
-
+-- GROUP3 checked, OK
 -- cách 1
 checkElectricalDevice1 :: Float->Float->Float->String
 checkElectricalDevice1 consumption hours maximumAllowed
@@ -13,6 +13,7 @@ checkElectricalDevice1 consumption hours maximumAllowed
     |monthlyUsage > maximumAllowed = "exceeds maximum allowed"
     |otherwise = "within maximum allowed"
         where monthlyUsage =consumption*hours*30
+-- GROUP3 checked, OK
 -- cách 2
 checkElectricalDevice2 :: Float->Float->Float->String
 checkElectricalDevice2 consumption hours maximumAllowed
@@ -30,6 +31,7 @@ checkElectricalDevice2 consumption hours maximumAllowed
 -- So `show 3` will produce `"3"` and `show (3 > 2)` will produce `"True"`.
 
 -- In the previous function, return the excess/savings of consumption as part of the message.
+-- GROUP3 checked, OK
 checkElectricalDevice3 :: Float->Float->Float->String
 checkElectricalDevice3 consumption hours maximumAllowed
     |consumption <0 || hours <0 || maximumAllowed <0 = "input values must be >0"
@@ -45,6 +47,7 @@ checkElectricalDevice3 consumption hours maximumAllowed
 -- Write a function that showcases the advantages of using let expressions to split a big expression into smaller ones.
 -- Then, share it with other students in Canvas.
 
+-- GROUP3 checked, OK
 bigExpression :: Double -> Double
 bigExpression x = 
     let part1 = x * 2 + 3
@@ -60,7 +63,7 @@ bigExpression x =
 -- possible. To implement this function using both guards and if-then-else statements.  
 
 
-
+-- GROUP3 checked, OK
 quotient :: Double ->Double ->String
 quotient a b
     |b==0 = "Division by zero is not possible"
@@ -76,6 +79,7 @@ quotient a b
 
 -- case1 : use a where block inside a let expression 
 
+-- GROUP3 checked, NOT OK, the requirement is to write ONE function, not 2 separated functions
 sumOfSquare :: Double ->Double->Double
 sumOfSquare a b =
    
