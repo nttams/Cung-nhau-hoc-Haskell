@@ -112,9 +112,9 @@ Trả về kết quả là 1 tuple chứa tổng điểm của A và tổng đi�
 Example:
 > rockPaperScissor "RRR" "PPP" 
 (0,9)
-> rockPaperScissor "RCRPP" "PCCCP" 
+> rockPaperScissor "RSRPP" "PSSSP" 
 (5,8)
-> rockPaperScissor "RCCP" "CPRP" 
+> rockPaperScissor "RSSP" "SPRP" 
 (7,4)
 -}
 
