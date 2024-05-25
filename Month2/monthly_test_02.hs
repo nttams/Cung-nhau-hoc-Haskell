@@ -36,8 +36,8 @@ Chỉ số:   0  1   2   3   4
 -- ------------------------
 {- 
 Viết hàm fibonacci nhận vào một số nguyên dương n và trả về số Fibonacci thứ n
-Thứ tự      : 1 2 3 4 5 6 7  8  9  10
-Fibonacci   : 0 1 2 3 5 8 13 21 34 55
+Thứ tự      : 0 1 2 3 4 5 6 7  8  9  10
+Fibonacci   : 0 1 1 2 3 5 8 13 21 34 55
 
 -- Ví dụ:
 -- ghci> fibonacci 5
