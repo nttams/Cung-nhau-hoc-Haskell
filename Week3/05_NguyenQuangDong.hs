@@ -2,6 +2,7 @@
 -- Write a function that checks if the monthly consumption of an electrical device is bigger, equal, or smaller than the maximum allowed and
 -- returns a message accordingly. 
 -- The function has to take the hourly consumption of an electrical device, the hours of daily use, and the maximum monthly consumption allowed.
+-- GROUP3 checked, OK
 monthlyConsumption :: Float -> Float -> Float -> String
 monthlyConsumption hourlyConsumption dailyHours maxMonthly 
     | monthlyUsage > maxMonthly = "The monthly consumption is bigger than the maximum allowed."
@@ -16,6 +17,9 @@ monthlyConsumption hourlyConsumption dailyHours maxMonthly
 -- So `show 3` will produce `"3"` and `show (3 > 2)` will produce `"True"`.
 
 -- In the previous function, return the excess/savings of consumption as part of the message.
+
+-- GROUP3 checked, OK, but should name "monthlyConsumption2" or "monthlyConsumption'", would be easier for reviewer
+-- to load the file and test with ghci
 monthlyConsumption :: Float -> Float -> Float -> String
 monthlyConsumption hourlyConsumption dailyHours maxMonthly 
     | monthlyUsage > maxMonthly = "The monthly consumption is bigger than the maximum allowed. Excess: " ++ show (monthlyUsage - maxMonthly)
@@ -27,6 +31,7 @@ monthlyConsumption hourlyConsumption dailyHours maxMonthly
 -- Question 3
 -- Write a function that showcases the advantages of using let expressions to split a big expression into smaller ones.
 -- Then, share it with other students in Canvas.
+-- GROUP3 checked, OK
 advantagesOfLet :: Float -> Float -> String       -- dien tich hinh tron vs hinh vuong
 advantagesOfLet radius side = 
     let 
@@ -43,6 +48,7 @@ advantagesOfLet radius side =
 -- Write a function that takes in two numbers and returns their quotient such that it is not greater than 1.
 -- Return the number as a string, and in case the divisor is 0, return a message why the division is not
 -- possible. To implement this function using both guards and if-then-else statements.  
+-- GROUP3 checked, NOT OK, you misunderstood the requirement
 checkQuotient :: Float -> Float -> String
 checkQuotient num1 num2
     | num2 == 0 = "Can not devide by 0."
@@ -56,6 +62,7 @@ checkQuotient num1 num2
 -- Write a function that takes in two numbers and calculates the sum of square roots for the product and quotient
 -- of those numbers. Write the function such that you use a where block inside a let expression and a
 -- let expression inside a where block. 
+-- GROUP3 checked, NOT OK, you missed "where in let"
 sumOfSquareRoots :: Float -> Float -> Float
 sumOfSquareRoots num1 num2 
     | num2 == 0 = error "Cannot divide by zero"          

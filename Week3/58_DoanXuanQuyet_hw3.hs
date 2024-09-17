@@ -4,6 +4,7 @@
 -- The function has to take the hourly consumption of an electrical device, the hours of daily use, and the maximum monthly consumption allowed.
 -- (Monthly usage = consumption (kW) * hours of daily use (h) * 30 days).
 
+-- GROUP3 checked, OK
 checkMonthlyElectricityConsumption :: Int -> Int -> Int -> String
 checkMonthlyElectricityConsumption consumption hours allowedConsumption
         | monthlyElectricityConsumption < allowedConsumption = "The monthly consumption of an electrical device is smaller than the maximum allowed"
@@ -28,6 +29,7 @@ Test_case 3 : checkMonthlyElectricityConsumption 2 3 179
 
 -- In the previous function, return the excess/savings of consumption as part of the message.
 
+-- GROUP3 checked, OK
 checkMonthlyElectricityConsumptionPro :: Int -> Int -> Int -> String
 checkMonthlyElectricityConsumptionPro consumption hours allowedConsumption
         | excessOrSavingsConsumption > 0 = "The monthly consumption of an electrical device is smaller than the maximum allowed. The savings of consumption : " ++ show excessOrSavingsConsumption
@@ -50,6 +52,7 @@ Test_case 3 : checkMonthlyElectricityConsumptionPro 2 3 177
 -- Then, share it with other students in Canvas.
 
 -- Example : Calculates the area of a complex shape (combination of a rectangle and a triangle)
+-- GROUP3 checked, OK
 calculateAreaOfComplexShapeNotUsingLet :: Double -> Double -> Double -> Double
 calculateAreaOfComplexShapeNotUsingLet length width height = length * width + length * height / 2
 
@@ -73,6 +76,7 @@ Test_case 2 : calculateAreaOfComplexShape 2 3 4
 -- Return the number as a string, and in case the divisor is 0, return a message why the division is not
 -- possible. To implement this function using both guards and if-then-else statements.  
 
+-- GROUP3 checked, NOT OK
 checkDivision :: Double -> Double -> String
 checkDivision a b
     | b == 0 = "Cannot perform division by 0"
@@ -100,6 +104,7 @@ Test_case 7 : checkDivision (-4.5) (-3.25)
 -- of those numbers. Write the function such that you use a where block inside a let expression and a
 -- let expression inside a where block. 
 
+-- GROUP3 checked, NOT OK, logic is correct, but lacks of "where in let"
 calculates :: Double -> Double -> String
 calculates a b  
     | b == 0 = "Cannot perform division by 0" 

@@ -3,6 +3,7 @@
 -- returns a message accordingly. 
 -- The function has to take the hourly consumption of an electrical device, the hours of daily use, and the maximum monthly consumption allowed.
 -- (Monthly usage = consumption (kW) * hours of daily use (h) * 30 days).
+-- GROUP3 checked, OK
 bai1 :: Float -> Float -> Float -> String
 bai1 used hour maxused 
     | monthlyused == maxused ="muc tieu thu hang thang bang voi muc toi da"
@@ -15,6 +16,7 @@ bai1 used hour maxused
 -- So `show 3` will produce `"3"` and `show (3 > 2)` will produce `"True"`.
 
 -- In the previous function, return the excess/savings of consumption as part of the message.
+-- GROUP3 checked, OK
 bai2 :: Float -> Float -> Float -> String
 bai2 used hour maxused 
     | monthlyused == maxused ="muc tieu thu hang thang bang voi muc toi da"
@@ -25,6 +27,7 @@ bai2 used hour maxused
 -- Question 3
 -- Write a function that showcases the advantages of using let expressions to split a big expression into smaller ones.
 -- Then, share it with other students in Canvas.
+-- GROUP3 checked, NOT OK
 bai3 :: Float -> Float 
 bai3 r = 
     let pi = 3.14
@@ -34,6 +37,7 @@ bai3 r =
 -- Write a function that takes in two numbers and returns their quotient such that it is not greater than 1.
 -- Return the number as a string, and in case the divisor is 0, return a message why the division is not
 -- possible. To implement this function using both guards and if-then-else statements.  
+-- GROUP3 checked, BEST SOLUTION
 bai4 :: Float->Float->String
 bai4 a b
     | a==0 && b==0 ="Khong xac dinh"
@@ -45,7 +49,8 @@ bai4 a b
 -- Question 5
 -- Write a function that takes in two numbers and calculates the sum of square roots for the product and quotient
 -- of those numbers. Write the function such that you use a where block inside a let expression and a
--- let expression inside a where block. 
+-- let expression inside a where block.
+-- GROUP3 checked, NOT OK
 bai5 :: Float -> Float -> String 
 bai5 a b 
     | b == 0 = "khong xac dinh"

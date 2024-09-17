@@ -7,7 +7,7 @@
    và trả về một thông báo tương ứng.
    Hàm phải nhận vào lượng tiêu thụ hàng giờ của một thiết bị điện, số giờ sử dụng hàng ngày và lượng tiêu thụ hàng tháng tối đa cho phép.
    (Lượng tiêu thụ hàng tháng = tiêu thụ (kW) * số giờ sử dụng hàng ngày (h) * 30 ngày). -}
-   
+-- GROUP3 checked, OK
    checkConsumption :: Int -> Int -> Int -> String
    checkConsumption consumption hours maximum
     | calculate > maximum = "Bigger"
@@ -24,7 +24,7 @@
    Ví dụ `show 3` sẽ cho ra "3" và `show (3 > 2)` sẽ cho ra "True".
    Hãy dùng nó để cập nhật hàm trong bài 1, trả về số điện năng tiêu thụ vượt quá giới hạn hoặc tiết kiệm được trong thông báo.
 -}
-
+-- GROUP3 checked, OK
    checkConsumption' :: Int -> Int -> Int -> String
    checkConsumption' consumption hours maximum
     | calculate > maximum = "Excess " ++ show num
@@ -37,6 +37,7 @@
 -- Write a function that showcases the advantages of using let expressions to split a big expression into smaller ones.
 -- Then, share it with other students in Canvas.
 -- Viết một hàm cho thấy ích lợi của việc sử dụng biểu thức let để chia một biểu thức lớn thành các biểu thức nhỏ hơn.
+-- GROUP3 checked, OK
    calculateRoomPrice :: Double -> Double -> Double -> Double
    calculateRoomPrice roomPrice electric water = 
     let 
@@ -54,6 +55,9 @@
 -- thì ta có 2 giá trị thương là a/b hoặc b/a, hãy chọn giá trị không > 1 làm kết quả trả về, tất nhiên cần xem xét các trường hợp đặc biệt nữa)
 -- Trả về kết quả dưới dạng một chuỗi, và trong trường hợp mẫu số là 0, trả về một thông báo giải thích tại sao phép chia không
 -- thể thực hiện được. Hãy thực hiện bài này sử dụng cả guard và if-then-else trong cùng một hàm.
+-- GROUP3 checked, OK, but
+-- + Instead of using Int, can you Double, then no need for "fromIntegral"
+-- + The last 2 else(s) can never be reached, so don't need if statement there
    calculateNumber :: Int -> Int -> String
    calculateNumber a b
     | b == 0 && a == 0 = "Both of values are Zero"
@@ -78,6 +82,7 @@ Viết hàm sao cho trong hàm có cả 2 thứ sau:
    - một biểu thức let bên trong một khối where. 
 -}
 
+-- GROUP3 checked, NOT OK
 {-
     Bai này đang chưa rõ dàng về đề bài, phần thương ở đây là số nào chia cho số nào ạ?
 -}
